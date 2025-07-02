@@ -21,7 +21,7 @@
     $result = mysqli_query($connection,$query);
     // var_dump($result)
 
-    while($row = mysqli_fetch_assoc($result)){
+    while($rows = mysqli_fetch_assoc($result)){
         ?>
 
     <tr>
@@ -39,3 +39,5 @@
  </table>
 
 </div>
+
+<?php include "footer.php" ?>

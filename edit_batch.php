@@ -8,7 +8,7 @@
 if(isset($_GET["id"])){
     $id = $_GET["id"];
     $query = "SELECT * FROM `tbl_batch` where batch_id = $id";
-    $result = mysqli_query($conection,$query);
+    $result = mysqli_query($connection,$query);
     if($result){
         $rows = mysqli_fetch_assoc($result);
     }
@@ -45,13 +45,14 @@ if(isset($_GET["id"])){
         $batch_name = $_POST["batch_name"];
         $batch_capacity = $_POST["batch_capacity"];
         $batch_start_date = $_POST["batch_start_date"];
-        $query = "UPDATE `tbl_batch` GET `batch_name` = '$batch_name', 'batch_capacity' = '$batch_capacity', 'batch_start_date' = '$batch_start_date'";
+        $query = "UPDATE `tbl_batch` SET `batch_name`='$batch_name',`batch_capacity`='$batch_capacity',`batch_start_date`='$batch_start_date' WHERE batch_id=$id";
 
         $result = mysqli_query($connection, $query);
 
         if($result){
+            echo "record_updated";
             echo "<script>
-            window.location.herf = 'view-batch.php'
+             window.location.href = 'view-batch.php'
             </script>";
         }
     }

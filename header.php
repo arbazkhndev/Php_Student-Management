@@ -185,12 +185,13 @@
                 <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
                 <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-                <li><a href="add_batch.php"> <i class="icon-padnote"></i>Batch </a></li>
+                <li><a href="information.info.html"> <i class="icon-padnote"></i>information </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
+                    <li><a href="add_batch.php">Batch</a></li>
+                    <li><a href="view-batch.php">Batch View</a></li>
+                    <li><a href="add_student.php">Add Student</a></li>
+                    <li><a href="view-student.php">view Student</a></li>
                   </ul>
                 </li>
                 <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>

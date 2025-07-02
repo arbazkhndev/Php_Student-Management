@@ -23,7 +23,7 @@
 
         <div class="col-lg"></div>
         <br>
-        <input type="submit" class="btn btn-primary" value="add Batch" name="submit">
+        <input type="submit" class="btn btn-primary" value="Add Batch" name="submit">
         </div>
     </form>
 
