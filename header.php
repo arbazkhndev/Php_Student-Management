@@ -192,6 +192,8 @@
                     <li><a href="view-batch.php">Batch View</a></li>
                     <li><a href="add_student.php">Add Student</a></li>
                     <li><a href="view-student.php">view Student</a></li>
+                    <li><a href="add_teacher.php">Add Teacher</a></li>
+
                   </ul>
                 </li>
                 <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
