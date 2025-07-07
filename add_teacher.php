@@ -21,16 +21,16 @@
 
         <div class="row">
         <div class="col-lg">
-            <label for="exampleFormControlInput1" class="form-label">Teacher teacher</label>
-            <select class="form-control" name="teacher_teacher" placeholder="Enter Teacher teacher">
-                <option value="">Select teacher</option>
+            <label for="exampleFormControlInput1" class="form-label">Teacher Batch</label>
+            <select class="form-control" name="teacher_batch" placeholder="select batch">
+                <option value="">Select batch</option>
             <?php
-            $query = "SELECT *FROM `tbl_teacher`";
+            $query = "SELECT *FROM `tbl_batch`";
             $result = mysqli_query($connection,$query);
             if($result){
                 while($rows = mysqli_fetch_assoc($result)){
                     ?>
-                    <option value="<?php echo $rows["teacher_id"];?>"> <?php echo $rows["teacher_name"];?> </option>
+                    <option value="<?php echo $rows["batch_id"];?>"> <?php echo $rows["batch_name"];?> </option>
                     <?php
                 }
             }
@@ -70,13 +70,13 @@ if(isset($_POST["submit"])){
     $teacher_email = $_POST["teacher_email"];
     $teacher_password = $_POST["teacher_password"];
     $teacher_batch = $_POST["teacher_batch"];
-    $teacher_image_name = $_FILES["teacher__img"]["name"];
+    $teacher_image_name = $_FILES["teacher_img"]["name"];
     $teacher_image_tmp_name = $_FILES["teacher_img"]["tmp_name"];
 
     $path = "images/".$teacher_image_name;
 
     if(move_uploaded_file($teacher_image_tmp_name,$path)){
-        $query = "INSERT INTO `tbl_teacher`(`teacher_name`,`teacher_email`,`teacher_password`,`teacher_batch`,`teacher_image_path`) VALUES ('$teacher_name',$teacher_email,'$teacher_password','$teacher_batch','$teacher_image_path')";
+        $query = "INSERT INTO `tbl_teacher`(`teacher_name`,`teacher_email`,`teacher_password`,`teacher_batch`,`teacher_img_path`) VALUES ('$teacher_name','$teacher_email','$teacher_password','$teacher_batch','$path')";
 
         $result = mysqli_query($connection,$query);
     
