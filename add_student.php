@@ -1,7 +1,7 @@
 <?php include "header.php"?>
 
 <div class="container-fluid">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div class="row">
         <div class="col-lg">
             <label for="exampleFormControlInput1" class="form-label">Student Name</label>
