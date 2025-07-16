@@ -1,6 +1,6 @@
 <?php include_once "header.php"?>
 
-<div class="container-fluid">
+<div class="container-fluname">
  <!-- page heading -->
 
  <h1 class="h3 mb-4 text-grey-800">View Student</h1>
@@ -11,15 +11,18 @@
         <th scope="col">Student Name</th>
         <th scope="col">Student Email</th>
         <th scope="col">Student Number</th>
+        <th scope="col">Student Batch</th>
+        <th scope="col">Student Profile</th>
         <th scope="col">Action</th>
     </tr>
  </thead>
  <tbody>
-    <?php
+ <?php
     $query = "SELECT * FROM `tbl_student`";
     $result = mysqli_query($connection,$query);
-    // var_dump($result)
 
+
+    if($result){
     while($rows = mysqli_fetch_assoc($result)){
         ?>
 
@@ -27,10 +30,12 @@
         <td><?php echo $rows["student_name"];?></td>
         <td><?php echo $rows["student_email"];?></td>
         <td><?php echo $rows["student_number"];?></td>
-        <td><a href="delete_student.php?id=<?php echo $rows["student_name"];?>" class="btn btn-danger"> Delete</a> | 
+        <td><img style="height:100px; wnameth:150px"src="<?php echo $rows["student_img_path"];?>"/></td>
+        <td><a href="delete_student.php?name=<?php echo $rows["student_name"];?>" class="btn btn-danger"> Delete</a> | 
         <a href="edit_student.php?name=<?php echo $rows["student_name"];?>" class="btn btn-primary"> Edit</a></td>
     </tr>
     <?php
+    }
     }
     ?>
  </tbody>

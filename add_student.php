@@ -95,7 +95,7 @@ if(isset($_POST["submit"])){
     $path = "images/".$student_image_name;
 
     if(move_uploaded_file($student_image_tmp_name,$path)){
-        $query = "INSERT INTO `tbl_student`(`student_name`,`student_email`,`student_number`,`student_password`,`student_batch`,`student_teacher`,`student_img_path`,) VALUES ('$student_name','$student_email','$student_number','$student_password','$student_batch','$student_teacher','$path')";
+        $query = "INSERT INTO `tbl_student`(`student_name`,`student_email`,`student_number`,`student_password`,`student_batch`,`student_teacher`,`student_img_path`) VALUES ('$student_name','$student_email','$student_number','$student_password','$student_batch','$student_teacher','$path')";
 
     $result = mysqli_query($connection,$query);
 
