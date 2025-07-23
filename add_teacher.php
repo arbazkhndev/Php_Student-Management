@@ -1,3 +1,5 @@
+<?php
+?>
 <?php include "header.php"?>
 
 <div class="container-fluid">
@@ -77,7 +79,8 @@ if(isset($_POST["submit"])){
 
     if(move_uploaded_file($teacher_image_tmp_name,$path)){
         $query = "INSERT INTO `tbl_teacher`(`teacher_name`,`teacher_email`,`teacher_password`,`teacher_batch`,`teacher_img_path`) VALUES ('$teacher_name','$teacher_email','$teacher_password','$teacher_batch','$path')";
-
+        $user_query = "INSERT INTO `tbl_users`(`username`,`user_password`,`user_type`) VALUES ('$teacher_email','$teacher_password','teacher')";
+        $user_result = mysqli_query($connection, $user_query);
         $result = mysqli_query($connection,$query);
     
         if($result == true){

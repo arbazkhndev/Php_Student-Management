@@ -1,4 +1,12 @@
 <?php require "config.php"?>
+<?php
+session_start();
+if(!isset($_SESSION["username"])){
+header("location:login.php");
+exit();  
+}
+$role = $_SESSION["usertype"];
+?>
 <!DOCTYPE html>
 <html>
   <head> 
@@ -164,7 +172,7 @@
               <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="assets/img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="assets/img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a></div>
             </div>
             <!-- Log out               -->
-            <div class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link">Logout <i class="icon-logout"></i></a></div>
+            <div class="list-inline-item logout">                   <a id="logout" href="logout.php" class="nav-link">Logout <i class="icon-logout"></i></a></div>
           </div>
         </div>
       </nav>
@@ -182,22 +190,27 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+                <li class="active"><a href="login.php"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
                 <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
                 <li><a href="information.info.html"> <i class="icon-padnote"></i>information </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                    <?php if($role == "admin"){?>
                     <li><a href="add_batch.php">Batch</a></li>
+                    <?php } ?>
                     <li><a href="view-batch.php">Batch View</a></li>
                     <li><a href="add_student.php">Add Student</a></li>
                     <li><a href="view-student.php">view Student</a></li>
+                    <?php if($role == "admin"){?>
                     <li><a href="add_teacher.php">Add Teacher</a></li>
                     <li><a href="view-teacher.php">View Teacher</a></li>
+                    <?php } ?>
+
 
                   </ul>
                 </li>
-                <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
+                <li><a href="logout.php"> <i class="icon-logout"></i>Login page </a></li>
         </ul><span class="heading">Extras</span>
         <ul class="list-unstyled">
           <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
