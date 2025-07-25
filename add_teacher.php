@@ -1,4 +1,10 @@
 <?php
+session_start();
+$usertype = $_SESSION["usertype"];
+if ($usertype != "admin"){
+header("location:access_denied.php");
+exit();
+}
 ?>
 <?php include "header.php"?>
 
